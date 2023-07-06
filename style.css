@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    background-color: #2f2f2f;
+    color: #f2f2f2;
+}
+
+.calculadora{
+    background-color: black;
+    width: 400px;
+    height: 630px;
+    margin: 10px;
+}
+
+.col-2{
+    grid-column-start: span 2;
+}
+
+.numpad{
+    height: 520px;
+    display: grid;
+    grid-template-columns: repeat(4,90px);
+    grid-template-rows: repeat(6,80px);
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-between;
+    align-items: center;
+    
+}
+.numpad>div{
+    background-color: red;
+}
