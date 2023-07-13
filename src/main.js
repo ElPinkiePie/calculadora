@@ -10,6 +10,7 @@ const buttonTwo = document.getElementById("button-two")
 const buttonThree = document.getElementById("button-three")
 const buttonZero = document.getElementById("button-zero")
 const buttonDot = document.getElementById("button-dot")
+const buttonCE = document.getElementById("button-ce")
 
 buttonPercent.addEventListener(
     "click"
@@ -71,8 +72,27 @@ buttonDot.addEventListener(
     ,() => addTextSecondLine(".")
 )
 
+buttonCE.addEventListener(
+    "click"
+    ,() => clearSecondLine()
+)
+
+/*La funciòn clearSecondLine no recibe parametros y remplaza
+el "second-line" con un cadena "0"*/
+const clearSecondLine = () => {
+    const secondLine = document.getElementById("second-line");
+    /*La propiedad textContent del HTMLElement
+    (osea el contenido del texto en la segunda linea) sera = a una cadena "0"*/
+    secondLine.textContent = "0";
+
+};
+
 const addTextSecondLine = (word) => {
     const secondLine = document.getElementById("second-line");
     const oldText = secondLine.textContent;
+    if(word==="." && oldText.includes(".")){
+        word = ""
+    }
+
     secondLine.textContent = oldText + word;
 };
