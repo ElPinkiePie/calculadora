@@ -89,10 +89,14 @@ const clearSecondLine = () => {
 
 const addTextSecondLine = (word) => {
     const secondLine = document.getElementById("second-line");
-    const oldText = secondLine.textContent;
+    let oldText = secondLine.textContent;
     if(word==="." && oldText.includes(".")){
         word = ""
-    }
+    }else if (word==="0" && oldText==="0"){
+        word = ""
+    }else if(word!=="0" && oldText==="0"){
+        oldText = ""
+    };
 
     secondLine.textContent = oldText + word;
 };
