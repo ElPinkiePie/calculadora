@@ -11,6 +11,9 @@ const buttonThree = document.getElementById("button-three")
 const buttonZero = document.getElementById("button-zero")
 const buttonDot = document.getElementById("button-dot")
 const buttonCE = document.getElementById("button-ce")
+const buttonDeleteOne = document.getElementById("button-delete-one")
+
+
 
 buttonPercent.addEventListener(
     "click"
@@ -70,12 +73,17 @@ buttonZero.addEventListener(
 buttonDot.addEventListener(
     "click"
     ,() => addTextSecondLine(".")
-)
+);
 
 buttonCE.addEventListener(
     "click"
     ,() => clearSecondLine()
-)
+);
+
+buttonDeleteOne.addEventListener(
+    "click"
+    ,() => deleteOne()
+);
 
 /*La funciòn clearSecondLine no recibe parametros y remplaza
 el "second-line" con un cadena "0"*/
@@ -91,12 +99,24 @@ const addTextSecondLine = (word) => {
     const secondLine = document.getElementById("second-line");
     let oldText = secondLine.textContent;
     if(word==="." && oldText.includes(".")){
-        word = ""
+        word = "";
     }else if (word==="0" && oldText==="0"){
-        word = ""
+        word = "";
     }else if(word!=="0" && oldText==="0"){
-        oldText = ""
+        if(word!=="."){
+            oldText = "";
+        };
     };
 
+
     secondLine.textContent = oldText + word;
+};
+
+const deleteOne = () => {
+    const secondLine = document.getElementById("second-line");
+    if(secondLine.textContent.length === 1){
+        secondLine.textContent = "0";
+    }else{
+        secondLine.textContent = secondLine.textContent.slice(0,-1)
+    };
 };
