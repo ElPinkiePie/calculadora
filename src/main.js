@@ -12,6 +12,7 @@ const buttonZero = document.getElementById("button-zero")
 const buttonDot = document.getElementById("button-dot")
 const buttonCE = document.getElementById("button-ce")
 const buttonDeleteOne = document.getElementById("button-delete-one")
+const buttonDeleteAll = document.getElementById("button-delete-all")
 
 
 
@@ -85,6 +86,11 @@ buttonDeleteOne.addEventListener(
     ,() => deleteOne()
 );
 
+buttonDeleteAll.addEventListener(
+    "click"
+    ,() => deleteAll()
+);
+
 /*La funciòn clearSecondLine no recibe parametros y remplaza
 el "second-line" con un cadena "0"*/
 const clearSecondLine = () => {
@@ -119,4 +125,10 @@ const deleteOne = () => {
     }else{
         secondLine.textContent = secondLine.textContent.slice(0,-1)
     };
+};
+
+const deleteAll = () => {
+    clearSecondLine()
+    const firstLine = document.getElementById("first-line");
+    firstLine.textContent = "";
 };
